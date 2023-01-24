@@ -1,0 +1,12 @@
+
+    <div>
+        <h1>Products List</h1>
+    </div>
+    <% for p in @products %>
+    <div>
+        <h2> <%=  p.name  %> </h2>
+        <h3>Product Price :<p> <%=  p.price %> </p>
+        </h3>
+        <p>Description : <%=  p.description  %></p>
+    </div>
+    <% end %>

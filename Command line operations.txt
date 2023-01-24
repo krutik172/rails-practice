@@ -1,0 +1,7 @@
+product = Product.new(name:"Chair", price: 8000)
+product.save
+
+product = Product.new(name:"Table", price: 15000, description: "Latest Design")
+product.save
+
+product = Product.new(name:"Table", price: 15000, description: "Latest Design")
