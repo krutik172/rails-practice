@@ -1,0 +1,26 @@
+    <div class="title text-center">
+      <h1>Products Details</h1>
+    </div>
+    <table class="table table-striped text-center">
+      <thead>
+        <th scope="col">ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%=  @product.id  %> </td>
+          <td><%=  @product.name  %> </td>
+          <td><%= @product.price %> </td>
+          <td><%= @product.description %> </td>
+        </tr>
+        <tr>
+    </table>
+    <td>
+      <div>
+        <a class="btn btn-primary item-center" type="submit" href="/product">Go Back</a>
+      </div>
+    </td>
+    <tbody>
+    </table>
