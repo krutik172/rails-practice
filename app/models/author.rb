@@ -2,6 +2,7 @@ class Author < ApplicationRecord
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :email, uniqueness: true
+  has_many :books
 
   # Will check this afterwards if get time
   #   validate :dob_should_earlier_than_today

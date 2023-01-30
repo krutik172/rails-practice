@@ -1,0 +1,38 @@
+<div class="title text-center">
+  <h1>Authors List</h1>
+</div>
+<table class="table table-striped  text-center">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">author Name</th>
+    <th scope="col">Date Of Birth</th>
+  </thead>
+  <tbody><% for author in @authors %> <tr>
+      <td><%=  author.id  %> </td>
+      <td><%=  author.first_name  %>  <%=  author.last_name %>  </td>
+      <td><%=  author.dob %> </td>
+     
+      <td>
+        <div>
+          <a class="btn btn-primary" type="submit" href="/authors/<%=  author.id  %>/books">Show Books </a>
+        </div>
+      </td>
+
+
+        <td>
+        <div>
+          <a class="btn btn-primary" type="submit" href="/authors/<%=  author.id  %>/edit">Edit Details </a>
+          
+        </div>
+      </td>
+
+    
+    </tr>
+    <tr><% end %>
+  <tbody>
+  </table>
+    <div>
+          <a class="btn btn-primary" type="submit" href="/authors/new">Create author</a>
+        </div>
+
+  
