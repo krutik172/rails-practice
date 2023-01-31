@@ -19,3 +19,7 @@ class Product < ActiveRecord::Base
     puts "Product saved !"
   end
 end
+
+
+
+

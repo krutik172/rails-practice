@@ -1,0 +1,23 @@
+Task 1: 
+- rails g model Author first_name:string last_name:string email:string dob:date
+
+Task 2:
+- 
+
+Task 3:
+- rails g migration AddAgeToAuthor Age:integer
+
+Task 4:
+- rails g migration RemoveAgeFromAuthor Age:integer
+
+Task 6:
+- rails generate model book name:string price:decimal{10.2}
+
+Task 7:
+-  rails g migration AddAuthorRefToBooks author:references
+
+Task 8: 
+Performed.
+
+Task 9:
+- rails g migration CreateJoinTableAuthorBook author book
