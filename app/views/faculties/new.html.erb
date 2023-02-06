@@ -1,0 +1,49 @@
+<div class="container">
+<h1>Faculty Registration</h1>
+
+<%=  form_with(url: faculties_create_path, model: @faculty, method: :post ) do |form| %>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+        </div>
+    </div>
+<br>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :phone %>
+        <%= form.text_field :phone, class: "form-control" %>
+        </div>
+    </div>
+<br>
+    
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :email %>
+        <%= form.text_field :email,  class: "form-control" %>
+    </div>
+    </div>
+<br>
+     <div class="row">  
+      <div class="col-4">
+        <%= form.label :designation %>
+        <%= form.text_field :designation,  class: "form-control" %>
+    </div>
+    </div>
+    <br>
+    <% if @faculty.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@faculty.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @faculty.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+    <%= form.submit class: "btn btn-primary " %>
+<% end %>

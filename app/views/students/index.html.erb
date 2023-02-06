@@ -1,0 +1,26 @@
+<div class="title text-center">
+  <h1>Student's List</h1>
+</div>
+<table class="table table-striped  text-center">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Student Name</th>
+    <th scope="col">Department</th>
+    <th scope="col">Birth Date</th>
+
+  </thead>
+  <tbody><% for student in @students %> <tr>
+      <td><%=  student.id  %> </td>
+      <td><%=  student.first_name %> <%=  student.last_name %> </td>
+      <td><%=  student.department  %> </td>
+      <td><%=  student.birthdate %> </td>
+
+    </tr>
+    <tr><% end %>
+  <tbody>
+  </table>
+    <div>
+          <a class="btn btn-primary" type="submit" href="/students/new">Register Student</a>
+        </div>
+
+  

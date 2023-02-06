@@ -1,0 +1,28 @@
+<div class="container">
+<h1>New Author</h1>
+mkj
+<%=  form_with(url: update_author_path(@author), model: @author, method: :put ) do |form| %>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, class: "form-control"%>
+        </div>
+    </div>
+<br>
+    
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name,  class: "form-control" %>
+    </div>
+    </div>
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :dob%>
+        <%= form.date_field :dob,  class: "form-control" %>
+    </div>
+    </div>
+    <br>
+    <%= form.submit class: "btn btn-primary " %>
+<% end %>

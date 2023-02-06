@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "faculties/index"
+  get "students/index"
+  get "authors/index"
   get "book/index"
   get "product/index"
   get "rails_introduction/index"
@@ -17,4 +20,19 @@ Rails.application.routes.draw do
   put "/book/:id/update", to: "book#update", as: :update
   get "/book/:id/delete", to: "book#destroy"
   get "/book/:id", to: "book#show"
+
+  get "/authors", to: "authors#index"
+  get "/authors/:id/books", to: "authors#show"
+  # post "/authors/create", to: "authors#create"
+  get "/authors/:id/edit", to: "authors#edit"
+  put "/authors/:id/update", to: "authors#update", as: :update_author
+  get "/authors/new", to: "authors#new"
+
+  get "/students", to: "students#index"
+  get "/students/new", to: "students#new"
+  post "/students/create", to: "students#create"
+
+  get "/faculties", to: "faculties#index"
+  get "/faculties/new", to: "faculties#new"
+  post "/faculties/create", to: "faculties#create"
 end

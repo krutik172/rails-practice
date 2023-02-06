@@ -1,0 +1,28 @@
+<div class="title text-center">
+  <h1>Faculty's List</h1>
+</div>
+<table class="table table-striped  text-center">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Faculty Name</th>
+    <th scope="col">Phone Number</th>
+    <th scope="col">Email</th>
+    <th scope="col">Designation</th>
+
+  </thead>
+  <tbody><% for faculty in @faculties   %> <tr>
+      <td><%=  faculty.id  %> </td>
+      <td><%=  faculty.name %> </td>
+      <td><%=  faculty.phone  %> </td>
+      <td><%=  faculty.email %> </td>
+      <td><%=  faculty.designation %> </td>
+
+    </tr>
+    <tr><% end %>
+  <tbody>
+  </table>
+    <div>
+          <a class="btn btn-primary" type="submit" href="/faculties/new">Register Faculty</a>
+        </div>
+
+  

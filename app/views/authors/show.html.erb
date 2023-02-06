@@ -1,26 +1,19 @@
 <div class="title text-center">
-  <h1>Books List</h1>
+  <h1><%=  @author.first_name %> <%=  @author.last_name %> Books List</h1>
 </div>
 <table class="table table-striped  text-center">
   <thead>
     <th scope="col">ID</th>
     <th scope="col">Book Name</th>
     <th scope="col">Price</th>
-    <th scope="col">Author</th>
+
 
   </thead>
   <tbody><% for book in @books %> <tr>
       <td><%=  book.id  %> </td>
       <td><%=  book.name  %> </td>
       <td><%=  book.price %> </td>
-      <td><%=  book.author.first_name %> <%=  book.author.last_name %> </td>
-
-      <td>
-        <div>
-          <a class="btn btn-primary" type="submit" href="/book/<%=  book.author_id  %>">Show Author Details </a>
-        </div>
-      </td>
-
+    
 
         <td>
         <div>
@@ -37,18 +30,7 @@
     <tr><% end %>
   <tbody>
   </table>
-    <div>
-          <a class="btn btn-primary" type="submit" href="/book/new">Create Book</a>
-<<<<<<< HEAD
+
+      <div>
+          <a class="btn btn-primary" type="submit" href="/authors">Go Back</a>
         </div>
-
-=======
-        </div> 
-<br>
-          <div>
-          <a class="btn btn-primary" type="submit" href="/authors">All Authors</a>
-        </div>
-
-
->>>>>>> d5288be5be1db3836784160fc9324f74ffdb46c5
-  
