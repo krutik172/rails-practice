@@ -1,0 +1,210 @@
+<div class="title text-center">
+  <h1>Employee's List</h1>
+</div>
+<table class="table  text-center">
+  <thead class="thead-dark">
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Email</th>
+    <th scope="col">Salary</th>
+    <th scope="col">No of Order</th>
+
+  </thead>
+  <tbody>
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3> List employees having age > 20 and < 40</h3>
+    </td>
+  </tr>
+  <% for employee in @employee_age_20_to_40   %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3>List employees which are full_time_available</h3>
+    </td>
+  </tr>
+  <% for employee in @employee_full_time_available   %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3>List employees which have exactly 5 number of orders and age > 25</h3>
+    </td>
+  </tr>
+  <% for employee in  @employee_no_of_order_5_and_age_greater_than_25    %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+
+  <tr class="table-secondary">
+  <td colspan="6">
+   <h3>List employees which are created before today</h3>
+  </td>
+  </tr>
+  <% for employee in   @employee_created_before_today  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+  
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3>List employees which have exactly 5 number of orders Or age < 25</h3>
+    </td>
+  </tr>
+  <% for employee in @employee_no_of_order_5_and_age_less_than_25   %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+  
+  
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3>List employees in descending order by age</h3>
+    </td>
+  </tr>
+  <% for employee in  @employee_age_desc  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary">
+    <td colspan="6">
+    <h3>List employees in ascending order by number of order</h3>
+    </td>
+  </tr>
+  <% for employee in @emmployee_no_of_order_asc   %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>List employees having a salary > 45000</h3>
+    </td>
+  </tr>
+  <% for employee in   @employee_salary_45000  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>List employees Group By who have No of Order more than 5</h3>
+    </td>
+  </tr>
+  <%  @employee_group_by_order_more_than_5.each do |employee|  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>List employees example of unscope</h3>
+    </td>
+  </tr>
+  <%  @employee_unscope.each do |employee|  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>List employees example of reselect</h3>
+    </td>
+  </tr>
+  <%  @employee_reselect.each do |employee|  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+    </tr>
+  <% end %>
+
+    <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>List employees example of only</h3>
+    </td>
+  </tr>
+  <%  @employee_only.each do |employee|  %> 
+    <tr>
+      <td><%=  employee.id  %> </td>
+      <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+      <td><%=  employee.age %> </td>
+      <td><%=  employee.email %> </td>
+      <td><%=  employee.salary  %> </td>
+      <td><%=  employee.no_of_order %> </td>
+    </tr>
+  <% end %>
+
+  <tbody>
+</table>

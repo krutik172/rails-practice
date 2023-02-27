@@ -1,0 +1,91 @@
+<div class="title text-center">
+
+<%=  form_with(url: employees_path, model: @employee, method: :get, autocomplete: "off" ) do |form| %>
+  <div class="row">  
+      <div class="col-4">
+        <%= form.label :email %>
+        <%= form.text_field :email, value: nil,  placeholder: "Enter email.."  %>
+        <%= submit_tag ("Search")%>
+        </div>
+        <% if @msg %>
+        <p> <%= @msg%></p>
+        <% end %>
+    </div>
+<% end %>
+
+
+
+  <h1>Employee's List</h1>
+</div>
+<table class="table table-striped  text-center">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Email</th>
+    <th scope="col">Salary</th>
+    <th scope="col">
+      <div class="d-flex p-2 justify-content-around" >
+        <%= button_to "+", employee_order_increase_path, method: "get", class: "btn btn-primary" %> 
+        <p >No of Order</p> 
+        <%= button_to "-", employee_order_decrease_path, method: "get", class: "btn  btn-danger" %> 
+      </div>    
+    </th>
+
+  </thead>
+  <tbody>
+  <% if @employee %>
+    <tr>
+      <td><%=  @employee.id  %> </td>
+      <td><%=  @employee.first_name %> <%=  @employee.last_name %> </td>
+      <td><%=  @employee.age %> </td>
+      <td><%=  @employee.email %> </td>
+      <td><%=  @employee.salary  %> </td>
+      <td><%=  @employee.no_of_order %> </td>
+       <td>
+        <div>
+          <a class="btn btn-primary" type="submit" href="/employees/<%=  @employee.id  %>/edit">Edit Details </a>
+        </div>
+      </td>
+
+      <td>
+      <div>
+      <%= button_to "Delete", employee_path(id: @employee.id), :method => 'delete'  %>
+      </div>
+      </td>
+    </tr>
+
+  <% else %>
+
+    <% for employee in @employees   %> 
+  
+      <tr>
+        <td><%=  employee.id  %> </td>
+        <td><%=  employee.first_name %> <%=  employee.last_name %> </td>
+        <td><%=  employee.age %> </td>
+        <td><%=  employee.email %> </td>
+        <td><%=  employee.salary  %> </td>
+        <td><%=  employee.no_of_order %> </td>
+        <td>
+          <div>
+            <a class="btn btn-primary" type="submit" href="/employees/<%=  employee.id  %>/edit">Edit Details </a>
+          </div>
+        </td>
+
+        <td>
+          <div>
+          <%= button_to "Delete", employee_path(id: employee.id), :method => 'delete'  %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>   
+  <tbody>
+  </table>
+<div>
+    <a class="btn btn-primary" type="submit" href="/employees/new">Register employee</a>
+</div>
+<br>
+<div>
+      <a class="btn btn-primary" type="submit" href="/employees/show_employee">Show filtered employee</a>
+</div>

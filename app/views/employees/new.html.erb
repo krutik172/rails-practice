@@ -1,0 +1,75 @@
+<div class="container">
+<h1>Glad to see you coming !</h1>
+
+<%=  form_with(url: employees_path, model: @employee, method: :post ) do |form| %>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, class: "form-control" %>
+        </div>
+    </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :age %>
+      <%= form.number_field :age, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+<div class="row">  
+    <div class="col-4">
+      <%= form.label :salary %>
+      <%= form.number_field :salary, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+  <div class="row">  
+    <div class="col-4">
+      <%= form.label :no_of_order %>
+      <%= form.number_field :no_of_order, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+  <div class="row">  
+    <div class="col-4">
+      <%= form.label :full_time_available %>
+      <%= form.check_box :full_time_available, class: "form-control" %>
+      </div>
+  </div>
+<br>
+    <%= form.submit class: "btn btn-primary " %>
+<% end %>
+
+ <% if @employee.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <% @employee.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+<div>
