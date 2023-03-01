@@ -34,9 +34,16 @@ Rails.application.routes.draw do
   post "/faculties/create", to: "faculties#create"
 
   get "/employees/show_employee", to: "employees#show_employee"
-  get "/employee/index/increase", to: "employees#increase" , as: "employee_order_increase" 
-  get "/employee/index/decrease", to: "employees#decrease" , as: "employee_order_decrease" 
+  get "/employee/index/increase", to: "employees#increase", as: "employee_order_increase"
+  get "/employee/index/decrease", to: "employees#decrease", as: "employee_order_decrease"
 
+  get "/items/all", to: "items#show_all", as: "show_all"
 
+  get "/orders/display", to: "orders#display"
+  get "/orders", to: "orders#display"
+  get "orders/all", to: "orders#index", as: "all_orders"
   resources :employees
+  resources :items
+  resources :customers
+  resources :orders
 end

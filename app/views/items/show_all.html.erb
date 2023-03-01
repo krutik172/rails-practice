@@ -1,0 +1,48 @@
+<div class="title text-center">
+  <h1>Items List</h1>
+</div>
+<table class="table table-striped  text-center">
+    <thead>
+        <th scope="col">ID</th> 
+        <th scope="col">Item Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Capicity</th>
+        <th scope="col">Is Active</th>
+        <th scope="col">Status</th>
+    </thead>
+
+    <tbody>
+    <% for item in @items %> 
+    <tr>
+        <td><%=  item.id  %> </td>
+        <td><%=  item.title  %> </td>
+        <td><%=  item.price %> </td>
+        <td><%=  item.description %></td>
+        <td><%=  item.capicity %></td>
+        <td>
+            <% if item.is_active %>
+            <p><i class="bi-check-lg"></i></p>
+            <% else %>
+            <p><i class="bi-x-lg"></i></p>
+            <% end %>
+        </td>
+        <td><%=  item.status %></td>
+
+        <td>
+            <div>
+                <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary", metohd: :get %>
+            </div>
+        </td>
+        <td>
+            <div>
+                <%= link_to "Delete", item_path(item), class: "btn btn-danger", data: {turbo_metohd: :delete, turbo_confirm: "item will be deleted ?" } %>
+            </div>
+        </td>
+    </tr>
+    <% end %>
+    <tbody>
+</table>
+<div>
+    <%= link_to "Add Item", new_item_path, class: "btn btn-primary", metohd: "get" %>
+</div> 

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    font-size: 10em;
+    font-weight: bold;
+}
+
+.item-title {
+    font-size: 1em;
+    font-weight: bolder;
+}
