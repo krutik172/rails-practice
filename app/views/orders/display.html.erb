@@ -1,0 +1,87 @@
+<div class="container">
+<%= link_to "All orders", all_orders_path, class: "btn btn-primary" %>
+<br>
+
+<table class="table text-center">
+<tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>Most sales product by quantity</h3>
+        </td>
+  </tr>
+  <thead class="thead-dark">
+
+    <th scope="col">Name</th>
+    <th scope="col">Item</th>
+    <th scope="col">Quantity</th>
+  </thead>
+  <tbody>
+ 
+     <% @o1.each do |customer, item, quantity|  %> 
+    <tr>
+      <td><%=  customer.first_name %> <%=  customer.last_name %> </td>
+      <td><%=  item.title %> </td>
+      <td><%=  quantity  %> </td>
+    </tr>
+  <% end %>   
+
+  <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>Most sales product by price</h3>
+    </td>
+  </tr>
+  <thead class="thead-dark">
+
+    <th scope="col">Name</th>
+    <th scope="col">Item</th>
+    <th scope="col">Total Price</th>
+  </thead>
+     <% @o2.each do |customer, item, quantity|  %> 
+    <tr>
+      <td><%=  customer.first_name %> <%=  customer.last_name %> </td>
+      <td><%=  item.title %> </td>
+      <td><%=  quantity  %> </td>
+    </tr>
+  <% end %> 
+
+   <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>Most order by a customer</h3>
+    </td>
+  </tr>
+  <thead class="thead-dark">
+
+    <th scope="col">Name</th>
+    <th scope="col">Orders</th>
+
+  </thead>
+     <% @o3.each do |customer|  %> 
+    <tr>
+      <td><%=  customer.first_name %> <%=  customer.last_name %> </td>
+      <td><%=  customer.orders.count %> </td>
+
+    </tr>
+  <% end %>
+
+     <tr class="table-secondary"> 
+    <td colspan="6">
+    <h3>Most cancelled orders by customer</h3>
+    </td>
+  </tr>
+  <thead class="thead-dark">
+
+    <th scope="col">Name</th>
+    <th scope="col">Orders</th>
+
+  </thead>
+     <% @o4.each do |customer|  %> 
+    <tr>
+      <td><%=  customer.first_name %> <%=  customer.last_name %> </td>
+      <td><%= customer.canceled_orders_count %> </td>
+
+    </tr>
+  <% end %>  
+  <tbody>
+  </table>
+
+<br>
+</div>

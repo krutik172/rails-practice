@@ -1,0 +1,52 @@
+<div class="container">
+<h1>Glad to see you coming !</h1>
+
+<%=  form_with(url: customer_path(@customer), model: @customer) do |form| %>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, class: "form-control" %>
+        </div>
+    </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+    <%= form.submit class: "btn btn-primary " %>
+<% end %>
+
+ <% if @customer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <% @customer.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+<div>
