@@ -52,11 +52,41 @@
         <a class="nav-link" href="/orders">Orders</a>
       </li>
 
-        <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/customers">customers</a>
       </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/cars">Cars</a>
+      </li>
+
+
+
+<% if current_user %>
+
+      <li class="nav-item d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+        <a> Hello <%= current_user.name  %></a>
+      </li>
+
+      <li class="nav-item d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+        <a class="nav-link" href="/logout">logout</a>
+      </li>
+      <% else %>
+        <li class="nav-item d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+        <a class="nav-link" href="/users/new">sing Up</a>
+      </li>
+         <li class="nav-item d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3">
+        <a class="nav-link" href="/login">Log In</a>
+      </li>
+
+<%end %>
+
+
   </div>
 </nav>
+
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
 
     <%= yield %>
   </body>

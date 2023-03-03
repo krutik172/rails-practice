@@ -43,7 +43,20 @@ Rails.application.routes.draw do
   get "/orders", to: "orders#display"
   get "orders/all", to: "orders#index", as: "all_orders"
   resources :employees
+  get "/orders/display", to: "orders#display"
+  get "/orders", to: "orders#display"
+  get "orders/all", to: "orders#index", as: "all_orders"
+
+
+  get "/login", to:"users#login", as: "login"
+  post "/login", to:"users#log_in", as: "log_in"
+  get "/logout", to: "users#logout", as: "logout"
+  get "/cars/download_file", to: "cars#download_pdf"
+
+  resources :employees
   resources :items
   resources :customers
   resources :orders
+  resources :users
+  resources :cars
 end

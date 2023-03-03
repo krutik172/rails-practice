@@ -1,0 +1,63 @@
+<div class="container">
+<h1>Glad to see you coming !</h1>
+
+<%=  form_with(url: cars_path, model: @car, method: :post ) do |form| %>
+
+    <div class="row">  
+      <div class="col-4">
+        <%= form.label :company %>
+        <%= form.text_field :company, class: "form-control" %>
+        </div>
+    </div>
+<br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :model %>
+      <%= form.text_field :model, class: "form-control" %>
+    </div>
+  </div>
+<br>
+
+
+<div class="row">  
+    <div class="col-4">
+      <%= form.label :price %>
+      <%= form.number_field :price, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+<div class="row">  
+    <div class="col-4">
+      <%= form.label :capacity %>
+      <%= form.number_field :capacity, class: "form-control" %>
+      </div>
+  </div>
+<br>
+
+<div class="row">
+      <div class="col-4">
+        <%= form.label :fuel_type %>
+        <%= form.select :fuel_type, Car.fuel_types.keys, class: "form-control" %>
+        </div>
+    </div>
+    <br>
+
+
+
+    <%= form.submit class: "btn btn-primary" %>
+<% end %>
+
+ <% if @car.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@car.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <% @car.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+<div>
