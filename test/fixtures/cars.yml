@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  model: MyString
+  price: 1
+  fuel_type: 1
+  type: 1
+  capacity: 1
+
+two:
+  company: MyString
+  model: MyString
+  price: 1
+  fuel_type: 1
+  type: 1
+  capacity: 1
