@@ -1,0 +1,26 @@
+<h1>customer's List</h1>
+</div>
+<table class="table table-striped  text-center">
+  <thead>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+  </thead>
+  <tbody>
+    
+    <tr>
+
+      <td><%=  @customer.id  %> </td>
+      <td><%=  @customer.first_name %> <%=  @customer.last_name %> </td>
+      <td><%=  @customer.email %> </td>
+      <td><%=  @customer.phone  %> </td>
+       <td>
+        <div>
+        <%= button_to "Edit", edit_business_customer_path(@customer), method: :get, class: "btn btn-primary"%>
+        </div>
+      </td>
+    </tr>
+    <tbody>
+  </table>
+

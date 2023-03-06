@@ -29,9 +29,15 @@
         </td>
         <td><%=  item.status %></td>
 
-<td>
+        <td>
             <div>
                 <%= link_to "show", item_path(item), class: "btn btn-primary", metohd: :get %>
+            </div>
+        </td>
+
+        <td>
+            <div>
+                <%= link_to "Orders", item_item_orders_path(item), class: "btn btn-primary", metohd: :get %>
             </div>
         </td>
         <td>
