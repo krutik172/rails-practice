@@ -1,35 +1,23 @@
-class OrdersController < ApplicationController
+class ItemOrdersController < ApplicationController
+  before_action :set_item
+
   def index
-    if params[:status]
-      @orders = Order.where(status: params[:status])
-    elsif params[:title]
-      @item = Item.find_by(title: params[:title].strip)
-      if @item
-        @orders = @item.orders
-      else
-        @msg = "Item does not exist."
-        @orders = Order.all
-      end
-    else
-      @orders = Order.all
-    end
+    @orders = @item.orders
   end
 
   def new
-    @order = Order.new
+    @order = Order.new()
     @customers = Customer.all
-    @items = Item.all
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = @item.orders.new(order_params)
     @order.total_price = @order.item.price * order_params[:quantity].to_i
 
     if @order.save
       redirect_to all_orders_path
     else
       @customers = Customer.all
-      @items = Item.all
       render :new, status: :unprocessable_entity
     end
   end
@@ -47,7 +35,6 @@ class OrdersController < ApplicationController
       redirect_to all_orders_path
     else
       @customers = Customer.all
-      @items = Item.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -60,14 +47,19 @@ class OrdersController < ApplicationController
   end
 
   def display
-  @o1 =  Order.top_customers_by_item
-  @o2 =  Order.top_customers_by_price
-  @o3 =  Order.top_customers_by_orders
-  @o4 =  Order.top_customers_by_canceled_orders
-  end 
+    @o1 = Order.top_customers_by_item
+    @o2 = Order.top_customers_by_price
+    @o3 = Order.top_customers_by_orders
+    @o4 = Order.top_customers_by_canceled_orders
+  end
+
   private
 
   def order_params
     params.require(:order).permit(:item_id, :quantity, :customer_id, :status)
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
