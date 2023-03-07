@@ -1,0 +1,45 @@
+<div class="container">
+<h1>Thank you for ordering !</h1>
+
+<%=  form_with(url: edit_item_item_order_path(@item,@order), model: @order, method: :post ) do |form| %>
+  
+
+  <div class="row">  
+      <div class="col-4">
+        <%= form.label :customer %>
+        <% options = options_from_collection_for_select(@customers, 'id', 'first_name') %>
+        <%= form.select :customer_id, options,  class: "form-control dropdown-menu" %>
+        </div>
+    </div>
+    <br>
+
+ <div class="row">  
+    <div class="col-4">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, class: "form-control" %>
+      </div>
+  </div>
+<br>
+<div class="row">  
+      <div class="col-4">
+        <%= form.label :status %>
+        <%= form.select :status, Order.statuses.keys %>
+        </div>
+    </div>
+    <br>
+
+    <%= form.submit class: "btn btn-primary " %>
+<% end %>
+
+ <% if @order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@order.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <% @order.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<br>
+<div>

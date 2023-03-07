@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get "product/index"
   get "rails_introduction/index"
 
-  root "rails_introduction#index"
   get "/product", to: "product#index"
   get "/product/:id", to: "product#show"
   get "/introduction", to: "rails_introduction#index#index"
@@ -42,20 +41,30 @@ Rails.application.routes.draw do
   get "/orders/display", to: "orders#display"
   get "/orders", to: "orders#display"
   get "orders/all", to: "orders#index", as: "all_orders"
-  resources :employees
-  get "/orders/display", to: "orders#display"
-  get "/orders", to: "orders#display"
-  get "orders/all", to: "orders#index", as: "all_orders"
 
-
-  get "/login", to:"users#login", as: "login"
-  post "/login", to:"users#log_in", as: "log_in"
+  get "/login", to: "users#login", as: "login"
+  post "/login", to: "users#log_in", as: "log_in"
   get "/logout", to: "users#logout", as: "logout"
   get "/cars/download_file", to: "cars#download_pdf"
 
+  get "/business/customers/search", to: "customers#search_customer", as: "search_customer"
+
+  namespace :business do
+    resources :customers do
+      member do
+        get "preview"
+        get "delete_customer", as: "delete_customer"
+      end
+    end
+  end
   resources :employees
-  resources :items
-  resources :customers
+  resources :items do 
+    resources :item_orders
+  end
+
+   
+
+  root "items#index"
   resources :orders
   resources :users
   resources :cars
